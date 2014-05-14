@@ -1,0 +1,38 @@
+[user]
+	name = Tarcísio Genaro Rodrigues
+	email = tarcisio.genaro@gmail.com
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[credential]
+	helper = store
+    username = tarc
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 0x0+0+0
+	history-view-vpane-position = 518
+	file-view-vpane-position = 919
+	main-window-view = HistoryView
+	file-view-hpane-position = 292
+[diff]
+    tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
+	st = status -s
+	br = branch -a
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat --date=short
+    lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+    lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    le = log --oneline --decorate
+    filelog = log -u
+    fl = log -u
+	oldest-ancestor = !zsh -c 'diff --old-line-format= --new-line-format= <(git rev-list --first-parent \"${1:-master}\") <(git rev-list --first-parent \"${2:-HEAD}\") | head -1' -
+[color]
+	ui = true
+[rerere]
+	enabled = true
