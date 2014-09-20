@@ -5,6 +5,10 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 if has("win32") 
+	" remove cmake from path because of buggy dll it includes which breaks
+	" compiled ycm
+	let $PATH = substitute($PATH, "C:[^;]*CMake[^;]*\\(;\\|$\\)", "", "g")
+
     set rtp+=~/vimfiles/bundle/Vundle.vim/
     let path='~/vimfiles/bundle'
     call vundle#begin(path)
