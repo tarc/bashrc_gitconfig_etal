@@ -19,13 +19,17 @@ endif
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'https://github.com/wincent/Command-T.git'
-" Plugin 'taglist.vim'
-" Plugin 'https://github.com/tarc/bclose.git'
-" Plugin 'jalcine/cmake.vim'
-" Plugin 'benmills/vimux'
 
+if has("win32") 
+elseif has("win32unix") "For Cygwin
+elseif has("unix") "Linux only
+	Plugin 'Valloric/YouCompleteMe'
+	Plugin 'https://github.com/wincent/Command-T.git'
+	Plugin 'taglist.vim'
+	Plugin 'https://github.com/tarc/bclose.git'
+	" Plugin 'jalcine/cmake.vim'
+	Plugin 'benmills/vimux'
+endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -33,7 +37,11 @@ filetype plugin indent on    " required
 
 " YouCompleteMe Options "
 """""""""""""""""""""""""
-let g:ycm_extra_conf_globlist = ['~/projects/*','!~/*']
+if has("win32") 
+	let g:ycm_extra_conf_globlist = ['C:\projects\*','!C:\*']
+else
+	let g:ycm_extra_conf_globlist = ['~/projects/*','!~/*']
+endif
 """""""""""""""""""""""""
 """""""""""""""""""""""""
 
