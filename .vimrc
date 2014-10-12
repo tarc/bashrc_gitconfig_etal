@@ -9,19 +9,23 @@ if has("win32")
 	" compiled ycm
 	let $PATH = substitute($PATH, "C:[^;]*CMake[^;]*\\(;\\|$\\)", "", "g")
 
-    set rtp+=~/vimfiles/bundle/Vundle.vim/
-    let path='~/vimfiles/bundle'
-    call vundle#begin(path)
+	set rtp+=~/vimfiles/bundle/Vundle.vim/
+	let path='~/vimfiles/bundle'
+	call vundle#begin(path)
 else
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
+	set rtp+=~/.vim/bundle/Vundle.vim
+	call vundle#begin()
 endif
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
 if has("win32") 
+	Plugin 'Valloric/YouCompleteMe'
+	Plugin 'taglist.vim'
+	Plugin 'https://github.com/tarc/bclose.git'
 elseif has("win32unix") "For Cygwin
+	Plugin 'https://github.com/tarc/bclose.git'
 elseif has("unix") "Linux only
 	Plugin 'Valloric/YouCompleteMe'
 	Plugin 'https://github.com/wincent/Command-T.git'
@@ -38,7 +42,7 @@ filetype plugin indent on    " required
 " YouCompleteMe Options "
 """""""""""""""""""""""""
 if has("win32") 
-	let g:ycm_extra_conf_globlist = ['C:\projects\*','!C:\*']
+	let g:ycm_extra_conf_globlist = ['C:\projects\*', 'C:\Projetos\*', '!C:\*']
 else
 	let g:ycm_extra_conf_globlist = ['~/projects/*','!~/*']
 endif
@@ -56,13 +60,15 @@ set number
 
 set autoindent
 if has("autocmd")
-    filetype plugin indent on
+	filetype plugin indent on
 endif
 
 nnoremap <F4> :TlistToggle<CR>
+nnoremap <leader> jk :YcmCompleter GoToDefinition<CR>
 
 colors koehler
 syntax on
+set backspace=2
 
 "set smartindent
 "set tabstop=4
