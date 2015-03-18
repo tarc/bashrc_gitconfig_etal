@@ -1,12 +1,12 @@
 [user]
-	name = TarcÃ­sio G. Rodrigues
+	name = Tarcísio Rodrigues
 	email = tarcisio.genaro@gmail.com
 [core]
 	editor = vim
 [merge]
 	tool = vimdiff
 [credential]
-	helper = cache
+	helper = store
 [giggle]
 	main-window-maximized = true
 	main-window-geometry = 0x0+0+0
@@ -14,23 +14,17 @@
 	file-view-vpane-position = 919
 	main-window-view = HistoryView
 	file-view-hpane-position = 292
-[color]
-	status = auto
-	branch = auto
-	diff = auto
-	ui = auto
-[push]
-	default = matching
-[branch]
-	autosetuprebase = always
 [diff]
-  tool = vimdiff
+    tool = vimdiff
 [difftool]
 	prompt = false
 [alias]
 	d = difftool
 	st = status -s
+	br = branch -a
 	ll = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%+s%Cblue\\ [%cn]" --decorate --numstat --date=short
+	tree = log --all --graph --decorate --oneline --simplify-by-decoration
+	ltree = log --graph --abbrev-commit --date=relative --branches --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n'
 [color]
 	status = auto
 	branch = auto
