@@ -1,5 +1,9 @@
 " Vundle settings "
 """""""""""""""""""
+
+if &diff
+else
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -24,6 +28,10 @@ if has("win32")
 	Plugin 'Valloric/YouCompleteMe'
 	Plugin 'taglist.vim'
 	Plugin 'https://github.com/tarc/bclose.git'
+	Plugin 'a.vim'
+	Plugin 'wesleyche/SrcExpl'
+	Plugin 'scrooloose/nerdtree'
+	Plugin 'wincent/command-t'
 elseif has("win32unix") "For Cygwin
 	Plugin 'https://github.com/tarc/bclose.git'
 elseif has("unix") "Linux only
@@ -51,9 +59,13 @@ endif
 
 set mouse=a
 
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+
+autocmd BufRead,BufNewFile *.py :set noexpandtab
+autocmd BufRead,BufNewFile *.hs :set noexpandtab
 
 set hidden
 set number
@@ -63,14 +75,29 @@ if has("autocmd")
 	filetype plugin indent on
 endif
 
-nnoremap <F4> :TlistToggle<CR>
-nnoremap <leader> jk :YcmCompleter GoToDefinition<CR>
+nmap <F4> :TlistToggle<CR>
+nmap <F8> :SrcExplToggle<CR>
+nmap <c-n> :NERDTreeToggle<CR>
+nmap <leader> jk :YcmCompleter GoToImprecise<CR>
+nmap <c-tab> :A<CR>
+
+let g:NERDTreeWinPos = "right"
+
+let g:SrcExpl_pluginList = [ 
+        \ "__Tag_List__", 
+    \ ] 
 
 colors koehler
 syntax on
 set backspace=2
 
-"set smartindent
-"set tabstop=4
-"set shiftwidth=4
-"set expandtab
+set foldmethod=indent
+set foldlevelstart=99
+set encoding=utf-8
+
+if has("win32") 
+  set guifont=Courier_New:h14:cANSI
+endif 
+
+
+endif
