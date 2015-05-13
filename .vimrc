@@ -69,6 +69,7 @@ autocmd BufRead,BufNewFile *.hs :set noexpandtab
 
 set hidden
 set number
+set ruler
 
 set autoindent
 if has("autocmd")
