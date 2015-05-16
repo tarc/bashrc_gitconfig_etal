@@ -13,12 +13,12 @@ if has("win32")
 	" compiled ycm
 	let $PATH = substitute($PATH, "C:[^;]*CMake[^;]*\\(;\\|$\\)", "", "g")
 
-	set rtp+=~/vimfiles/bundle/Vundle.vim/
-	let path='~/vimfiles/bundle'
-	call vundle#begin(path)
+    set rtp+=~/vimfiles/bundle/Vundle.vim/
+    let path='~/vimfiles/bundle'
+    call vundle#begin(path)
 else
-	set rtp+=~/.vim/bundle/Vundle.vim
-	call vundle#begin()
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 endif
 
 " let Vundle manage Vundle, required
@@ -36,8 +36,8 @@ elseif has("win32unix") "For Cygwin
 	Plugin 'https://github.com/tarc/bclose.git'
 elseif has("unix") "Linux only
 	Plugin 'Valloric/YouCompleteMe'
-	Plugin 'https://github.com/wincent/Command-T.git'
-	Plugin 'taglist.vim'
+	"Plugin 'https://github.com/wincent/Command-T.git'
+	"Plugin 'taglist.vim'
 	Plugin 'https://github.com/tarc/bclose.git'
 	" Plugin 'jalcine/cmake.vim'
 	Plugin 'benmills/vimux'
@@ -64,6 +64,7 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 
+" context rules for various file extensions:
 autocmd BufRead,BufNewFile *.py :set noexpandtab
 autocmd BufRead,BufNewFile *.hs :set noexpandtab
 
@@ -73,7 +74,7 @@ set ruler
 
 set autoindent
 if has("autocmd")
-	filetype plugin indent on
+    filetype plugin indent on
 endif
 
 nmap <F4> :TlistToggle<CR>
