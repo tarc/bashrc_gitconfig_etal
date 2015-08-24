@@ -35,12 +35,12 @@ if has("win32")
 elseif has("win32unix") "For Cygwin
 	Plugin 'https://github.com/tarc/bclose.git'
 elseif has("unix") "Linux only
-	Plugin 'Valloric/YouCompleteMe'
+	"Plugin 'Valloric/YouCompleteMe'
 	"Plugin 'https://github.com/wincent/Command-T.git'
 	"Plugin 'taglist.vim'
 	Plugin 'https://github.com/tarc/bclose.git'
 	" Plugin 'jalcine/cmake.vim'
-	Plugin 'benmills/vimux'
+	"Plugin 'benmills/vimux'
 endif
 
 " All of your Plugins must be added before the following line
