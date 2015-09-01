@@ -40,7 +40,9 @@ elseif has("unix") "Linux only
 	"Plugin 'taglist.vim'
 	Plugin 'https://github.com/tarc/bclose.git'
 	" Plugin 'jalcine/cmake.vim'
-	"Plugin 'benmills/vimux'
+	Plugin 'benmills/vimux'
+	Bundle 'scrooloose/syntastic'
+	Bundle 'bitc/vim-hdevtools'
 endif
 
 " All of your Plugins must be added before the following line
@@ -63,10 +65,6 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
-
-" context rules for various file extensions:
-autocmd BufRead,BufNewFile *.py :set noexpandtab
-autocmd BufRead,BufNewFile *.hs :set noexpandtab
 
 set hidden
 set number
@@ -101,5 +99,10 @@ if has("win32")
   set guifont=Courier_New:h14:cANSI
 endif 
 
+" context rules for various file extensions:
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+au FileType python set expandtab|set tabstop=2|set softtabstop=2|set shiftwidth=2
 
 endif
